@@ -16,7 +16,7 @@
 
 @file:JvmName("TTFile")
 
-package tt.tt.utils
+package tt.base.utils
 
 import android.graphics.Bitmap
 import io.reactivex.rxjava3.core.ObservableOnSubscribe

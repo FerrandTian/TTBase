@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package tt.tt.component
+package tt.base.component
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -22,7 +22,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-import tt.tt.rx.TTDisposables
+import tt.base.rx.TTDisposables
 import java.lang.reflect.ParameterizedType
 
 /**
@@ -36,7 +36,7 @@ abstract class TTActivity<B : ViewBinding> : AppCompatActivity() {
     val disposables = TTDisposables()
 
     @JvmField
-    val ctx  = this
+    val ctx = this
     lateinit var vmp: ViewModelProvider
     lateinit var vb: B
 

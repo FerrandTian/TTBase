@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package tt.tt.component
+package tt.base.component
 
 import android.content.Context
 import android.os.Bundle
@@ -25,7 +25,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-import tt.tt.rx.TTDisposables
+import tt.base.rx.TTDisposables
 import java.lang.reflect.ParameterizedType
 
 /**

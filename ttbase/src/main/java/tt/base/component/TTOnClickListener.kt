@@ -14,35 +14,14 @@
  * limitations under the License.
  */
 
-package tt.tt.rx
+package tt.base.component
 
-import io.reactivex.rxjava3.core.Observer
-import io.reactivex.rxjava3.disposables.Disposable
+import android.view.View
+import androidx.viewbinding.ViewBinding
 
 /**
  * @author tianfeng
  */
-abstract class TTObserver<T : Any>(private val set: TTDisposables? = null) : Observer<T> {
-    @JvmField
-    var disposable: Disposable? = null
-
-    override fun onSubscribe(d: Disposable) {
-        disposable = d
-        set?.add(d)
-    }
-
-    override fun onComplete() {
-        dispose()
-    }
-
-    override fun onError(e: Throwable) {
-        e.printStackTrace()
-        dispose()
-    }
-
-    fun dispose() {
-        set?.dispose(disposable)
-        disposable?.dispose()
-        disposable = null
-    }
+interface TTOnClickListener<B : ViewBinding, T> {
+    fun onClick(v: View, h: TTHolder<B>, t: T?)
 }

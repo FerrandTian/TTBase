@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package tt.tt.component
+package tt.base.component
 
 import androidx.recyclerview.selection.ItemDetailsLookup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import tt.tt.rx.TTDisposables
+import tt.base.rx.TTDisposables
 
 /**
  * @author tianfeng

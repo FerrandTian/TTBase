@@ -14,27 +14,35 @@
  * limitations under the License.
  */
 
-package tt.tt.component
+package tt.base.rx
 
-import android.app.Service
-import android.content.Context
-import tt.tt.rx.TTDisposables
+import io.reactivex.rxjava3.core.Observer
+import io.reactivex.rxjava3.disposables.Disposable
 
 /**
  * @author tianfeng
  */
-abstract class TTService : Service() {
+abstract class TTObserver<T : Any>(private val set: TTDisposables? = null) : Observer<T> {
     @JvmField
-    val log = TTLog(this.javaClass.simpleName)
+    var disposable: Disposable? = null
 
-    @JvmField
-    val ctx: Context = this
+    override fun onSubscribe(d: Disposable) {
+        disposable = d
+        set?.add(d)
+    }
 
-    @JvmField
-    val disposables = TTDisposables()
+    override fun onComplete() {
+        dispose()
+    }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        disposables.disposeAll()
+    override fun onError(e: Throwable) {
+        e.printStackTrace()
+        dispose()
+    }
+
+    fun dispose() {
+        set?.dispose(disposable)
+        disposable?.dispose()
+        disposable = null
     }
 }

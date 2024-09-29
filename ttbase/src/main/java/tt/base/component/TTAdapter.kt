@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package tt.tt.component
+package tt.base.component
 
 import android.content.Context
 import android.view.LayoutInflater

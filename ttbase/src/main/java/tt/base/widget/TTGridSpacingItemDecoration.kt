@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package tt.tt.widget
+package tt.base.widget
 
 import android.graphics.Rect
 import android.view.View

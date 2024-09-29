@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package tt.tt.component
+package tt.base.component
 
 import android.util.Log
 
@@ -234,7 +234,7 @@ class TTLog(@JvmField var tag: String = "TTLog") {
      * @param msg the string to print to the target stream.
      */
     fun print(msg: Any?) {
-        if (debug) System.out.print(msg)
+        if (debug) kotlin.io.print(msg)
     }
 
     /**

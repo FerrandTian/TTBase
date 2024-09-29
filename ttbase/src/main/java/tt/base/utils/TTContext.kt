@@ -16,7 +16,7 @@
 
 @file:JvmName("TTContext")
 
-package tt.tt.utils
+package tt.base.utils
 
 import android.bluetooth.BluetoothManager
 import android.content.Context
@@ -32,7 +32,7 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.core.app.ActivityCompat
 import androidx.core.content.FileProvider
-import tt.tt.constant.TTMime
+import tt.base.constant.TTMime
 import java.io.File
 
 fun Context.hasSystemFeature(featureName: String) = packageManager.hasSystemFeature(featureName)

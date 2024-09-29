@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package tt.tt.rx
+package tt.base.rx
 
-import io.reactivex.rxjava3.core.CompletableObserver
+import io.reactivex.rxjava3.core.SingleObserver
 import io.reactivex.rxjava3.disposables.Disposable
 
 /**
  * @author tianfeng
  */
-abstract class TTCompletableObserver(private val set: TTDisposables? = null) : CompletableObserver {
+abstract class TTSingleObserver<T : Any>(private val set: TTDisposables? = null) : SingleObserver<T> {
     @JvmField
     var disposable: Disposable? = null
 
@@ -31,7 +31,7 @@ abstract class TTCompletableObserver(private val set: TTDisposables? = null) : C
         set?.add(d)
     }
 
-    override fun onComplete() {
+    override fun onSuccess(t: T) {
         dispose()
     }
 

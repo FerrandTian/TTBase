@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package tt.tt.constant
+package tt.base.constant
 
 /**
  * @author tianfeng

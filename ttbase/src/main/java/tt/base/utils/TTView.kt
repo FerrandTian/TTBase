@@ -16,7 +16,7 @@
 
 @file:JvmName("TTView")
 
-package tt.tt.utils
+package tt.base.utils
 
 import android.app.Activity
 import android.app.Dialog

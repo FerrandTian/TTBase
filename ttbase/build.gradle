@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'tt.tt'
-    compileSdk 34
+    namespace 'tt.base'
+    compileSdk 35
     defaultConfig {
         minSdk 24
-        targetSdk 34
+        targetSdk 35
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

@@ -1,4 +1,4 @@
-package tt.tt.component
+package tt.base.component
 
 import android.view.View
 import androidx.viewbinding.ViewBinding

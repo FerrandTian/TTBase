@@ -14,26 +14,35 @@
  * limitations under the License.
  */
 
-package tt.tt.rx
+package tt.base.rx
 
+import io.reactivex.rxjava3.core.CompletableObserver
 import io.reactivex.rxjava3.disposables.Disposable
 
 /**
  * @author tianfeng
  */
-class TTDisposables {
-    private val set: MutableSet<Disposable> = HashSet()
+abstract class TTCompletableObserver(private val set: TTDisposables? = null) : CompletableObserver {
+    @JvmField
+    var disposable: Disposable? = null
 
-    fun add(d: Disposable) = set.add(d)
-
-    fun dispose(d: Disposable?) = set.remove(d).also {
-        d?.dispose()
+    override fun onSubscribe(d: Disposable) {
+        disposable = d
+        set?.add(d)
     }
 
-    fun disposeAll() {
-        set.removeAll {
-            it.dispose()
-            true
-        }
+    override fun onComplete() {
+        dispose()
+    }
+
+    override fun onError(e: Throwable) {
+        e.printStackTrace()
+        dispose()
+    }
+
+    fun dispose() {
+        set?.dispose(disposable)
+        disposable?.dispose()
+        disposable = null
     }
 }
