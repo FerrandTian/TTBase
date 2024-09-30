@@ -53,11 +53,14 @@
     <string name="tt_on">On</string>
     <string name="tt_other">Other</string>
     <string name="tt_password">Password</string>
+    <string name="tt_previous">Previous</string>
     <string name="tt_reconnect">Reconnect</string>
     <string name="tt_refresh">Refresh</string>
     <string name="tt_save">Save</string>
     <string name="tt_search">Search</string>
     <string name="tt_searching">Searching</string>
+    <string name="tt_select">Select</string>
+    <string name="tt_select_all">Select All</string>
     <string name="tt_send">Send</string>
     <string name="tt_settings">Settings</string>
     <string name="tt_share">Share</string>

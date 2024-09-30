@@ -21,7 +21,12 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.selection.*
+import androidx.recyclerview.selection.ItemDetailsLookup
+import androidx.recyclerview.selection.ItemKeyProvider
+import androidx.recyclerview.selection.MutableSelection
+import androidx.recyclerview.selection.Selection
+import androidx.recyclerview.selection.SelectionTracker
+import androidx.recyclerview.selection.StorageStrategy
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import java.lang.reflect.ParameterizedType
@@ -66,15 +71,21 @@ abstract class TTAdapter<B : ViewBinding, T>(
     val hasSelection: Boolean
         get() = tracker?.hasSelection() == true
 
-    @get:JvmName("selectionSize")
-    val selectionSize: Int
-        get() = tracker?.selection?.size() ?: 0
+    open fun isSelected(key: Long?): Boolean {
+        return tracker?.isSelected(key) == true
+    }
 
     @get:JvmName("selection")
-    val selection: Iterable<T>
-        get() = tracker?.selection?.map {
-            items[it.toInt()]
-        } ?: ArrayList()
+    val selection: Selection<Long>
+        get() = tracker?.selection ?: MutableSelection()
+
+    @get:JvmName("selectionSize")
+    val selectionSize: Int
+        get() = selection.size()
+
+    @get:JvmName("selectionItems")
+    val selectionItems: Iterable<T>
+        get() = selection.map { getItem(it)!! }
 
     @JvmField
     val itemKeyProvider = object : ItemKeyProvider<Long>(SCOPE_MAPPED) {
@@ -102,6 +113,10 @@ abstract class TTAdapter<B : ViewBinding, T>(
         this.setHasStableIds(true)
     }
 
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
     open fun getItem(position: Int): T? {
         return if (
             items.size > 0 && position >= 0 && position < items.size
@@ -110,10 +125,6 @@ abstract class TTAdapter<B : ViewBinding, T>(
 
     open fun getItem(key: Long): T? {
         return getItem(key.toInt())
-    }
-
-    open fun isSelected(key: Long?): Boolean {
-        return tracker?.isSelected(key) == true
     }
 
     open fun enableSelection(
@@ -191,10 +202,6 @@ abstract class TTAdapter<B : ViewBinding, T>(
 
     override fun getItemViewType(position: Int): Int {
         return TTHolder.viewType(viewBindingClass)
-    }
-
-    override fun getItemId(position: Int): Long {
-        return position.toLong()
     }
 
     override fun onAttachedToRecyclerView(view: RecyclerView) {
