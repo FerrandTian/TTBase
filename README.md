@@ -24,7 +24,7 @@ Then you can add the dependency to your **app** build.gradle file:
 ```
 dependencies {
     ...
-    implementation 'com.github.FerrandTian:TTBase:1.0.9'
+    implementation 'com.github.FerrandTian:TTBase:1.1.0'
 }
 ```
 
