@@ -5,10 +5,10 @@ plugins {
 
 android {
     namespace 'tt.base'
-    compileSdk 35
+    compileSdk 33
     defaultConfig {
         minSdk 24
-        targetSdk 35
+        targetSdk 33
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -26,7 +26,6 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.recyclerview)
     implementation(libs.androidx.recyclerview.selection)
     implementation(libs.reactivex.rxjava)
