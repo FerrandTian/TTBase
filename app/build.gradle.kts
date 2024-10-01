@@ -11,8 +11,8 @@ android {
         applicationId = "tt.base"
         minSdk = 26
         targetSdk = 33
-        versionCode = 112
-        versionName = "1.1.2"
+        versionCode = 113
+        versionName = "1.1.3"
     }
 
     buildTypes {
@@ -40,7 +40,6 @@ dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.material)
     implementation(libs.androidx.recyclerview)
     implementation(libs.androidx.recyclerview.selection)
     implementation(project(":ttbase"))

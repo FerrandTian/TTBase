@@ -55,7 +55,7 @@ class MainActivity : TTActivity<ActivityMainBinding>(), ActionMode.Callback,
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setSupportActionBar(vb.toolbar)
-        vb.recycler.addItemDecoration(TTSpacingItemDecoration(dp2px(16f).toInt()))
+        vb.recycler.addItemDecoration(TTSpacingItemDecoration(dp2px(8f).toInt()))
         vb.recycler.adapter = adapter
         adapter.setItems(List(20) { i ->
             Data(i.toLong(), "Title$i", "Content")
