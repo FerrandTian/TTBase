@@ -5,14 +5,14 @@ plugins {
 
 android {
     namespace = "tt.base"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "tt.base"
-        minSdk = 26
-        targetSdk = 33
-        versionCode = 113
-        versionName = "1.1.3"
+        minSdk = 24
+        targetSdk = 34
+        versionCode = 114
+        versionName = "1.1.4"
     }
 
     buildTypes {
